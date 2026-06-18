@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CNC Inc</title>
+    <style>
+		body {
+        	background-color: #f8f9fa; 
+        	color: #16161d;
+        	font-family: "Cascadia Code", "Consolas", monospace;
+        	font-size: 18px;
+        	margin: 0;
+        	padding-bottom: 30px;
+        	transition: opacity 0.4s ease;
+    	}
+
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+
+        h1, h3, h5, p { text-align: center; }
+
+        .x-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 12px 20px;
+            border: 2px solid #16161d;
+            color: #16161d;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .x-button:hover {
+            background: #16161d;
+            color: #f8f9fa;
+            transform: translateY(-1px);
+        }
+
+        .basic-link {
+            color: #16161d;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(to bottom, rgba(22, 22, 29, 0.02), rgba(22, 22, 29, 0.02) 1px, transparent 1px, transparent 3px);
+            opacity: 0.3;
+        }
+
+		#order-mb form {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+#order-mb h2 {
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 2px solid #16161d;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+#order-mb label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#order-mb input[type="text"],
+#order-mb input[type="number"],
+#order-mb select,
+#order-mb textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+#order-mb fieldset {
+    border: 1px solid #eee;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+#order-mb legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+#order-mb button[type="submit"] {
+    width: 100%;
+    background: #16161d;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#order-mb button[type="submit"]:hover {
+    background: #444;
+}
+    </style>
+</head>
+
+<body>
+
+    <div id="home" class="page active">
+        <h1>CNC Inc.</h1>
+		<h3>What We Do</h3>
+		<p>
+			We sell products and services, done manually by our team, and we give 20% of our funds to charity.<br>We are completely open-source and established our business in 2026, very recently.
+		</p>
+        <h3>What We Offer</h3>
+		<a href="javascript:void(0)" class="x-button" onclick="goToPage('opps')">Advanced Employment Opportunities</a>
+		<a href="javascript:void(0)" class="x-button" onclick="goToPage('prods')">Products</a>
+		<a href="javascript:void(0)" class="x-button" onclick="goToPage('servs')">Services</a>
+		<a href="javascript:void(0)" class="x-button" onclick="goToPage('license')">Licensing</a>
+
+        <h3>Our Team</h3>
+        <p>CEO<br>Head Programmer & Digital Lead<br>Head Artist<br></p>
+		<a href="javascript:void(0)" class="x-button" onclick="goToPage('au')">About Us</a>
+    </div>
+
+    <div id="opps" class="page">
+        <h1>Career Opportunities</h1>
+        <h3>Finance</h3>
+        <p>
+            We are currently seeking accountants and any kind of finance managers for:<br>
+            - Our Products<br>
+            - Our Services<br>
+            - Extracurricular Management
+        </p>
+        <center><a href="javascript:void(0)" class="basic-link" onclick="goToPage('home')">← Back to Dashboard</a></center>
+    </div>
+
+	<div id="license" class="page">
+		<h1>GNU v3 License</h1>
+		<h3>
+		<a href="https://www.gnu.org/licenses/gpl-3.0.en.html#license-text" class="basic-link">GPL v3, see here</a>
+		</h3>
+	</div>
+
+	<div id="servs" class="page">
+		<h1>CNC Services</h1>
+		<h3>Cleaning & Housework</h3>
+		<p>
+			- Window Cleaning<br>
+			- Lawn Mowing<br>
+			- House Deep-Clean
+		</p>
+		<center><a href="javascript:void(0)" class="basic-link" onclick="goToPage('home')"><- Back to Dashboard</a></center>
+	</div>
+
+	<div id="order-mb" class="page">
+		<form>
+  			<h2>Order Your Items</h2>
+ 			<label for="product">Choose a Product/Service:</label>
+  			<select id="product" name="product">
+				<option value="item1">Choose Item</option>
+   				<option value="item2">Sweet Mystery Box - £20</option>
+				<option value="item3">Lawn Mowing - £50 per acre</option>
+				<option value="item4">House Deep-Clean - £50-200 depending on surface area, and amount to clean</option>
+				<option value="item5">Window Clean - £1.50 per window</option>
+  			</select>
+
+  			<label for="quantity">Quantity:</label>
+  			<input type="number" id="quantity" name="quantity" min="1" value="1">
+
+  			<fieldset>
+    			<legend>Delivery Details</legend>
+    			<label for="name">Full Name:</label>
+    			<input type="text" id="name" name="customer_name" placeholder="Jane Doe" required>
+    
+    			<label for="address">Shipping Address:</label>
+    			<textarea id="address" name="address" rows="3"></textarea>
+ 			</fieldset>
+
+			<fieldset>
+				<legend>Payment Details</legend>
+
+<label for="cardnumber">Card Number</label>
+  <input type="text" id="cardnumber" placeholder="1234 5678 9123 4567" inputmode="numeric">
+
+  <div style="display: flex; gap: 10px;">
+    <div style="flex: 1;">
+      <label for="expiry">Expiry (MM/YY)</label>
+      <input type="text" id="expiry" placeholder="MM / YY" maxlength="5" inputmode="numeric">
+    </div>
+    <div style="flex: 1;">
+      <label for="cvc">CVC</label>
+      <input type="text" id="cvc" placeholder="123" maxlength="3" inputmode="numeric">
+    </div>
+  </div>
+			</fieldset>
+
+  			<a href="javascript:void(0)" class="x-button" onclick="goToPage('pmu')">Submit Order</a>
+		</form>
+
+		<center><a href="javascript:void(0)" class="basic-link" onclick="goToPage('smb')"><- Back to Sweet Mystery Box</a></center>
+
+	</div>
+
+	<div id="au" class="page">
+		<h1>About Us - CNC</h1>
+		<p>
+			CNC is a non-profit and charitable (<a href="https://simoncommunity.org/" class="basic-link">Simon Community</a>) company that was established in 2026,<br>by three friends who came together, and made a company as part of some schoolwork.<br>
+			CNC is designed to be professional and corporate.<br>We believe our commodities will appeal to you as we serve<br>a broad variety of products.<br><br>
+			It is licensed under the open-source GNU General Public License V3, see more <a href="https://www.gnu.org/licenses/gpl-3.0.html#license-text" class="basic-link">here</a>.
+		</p>
+
+		<center><a href="javascript:void(0)" class="basic-link" onclick="goToPage('home')"><- Back to Dashboard</a></center>
+		
+	</div>
+
+	<div id="prods" class="page">
+		<h1>CNC Products</h1>
+		<h3>Foods</h3>
+		<p>
+			- <a href="javascript:void(0)" class="basic-link" onclick="goToPage('smb')">Sweet Mystery Box</a>
+		</p>
+		<h3>Services</h3>
+		<p>
+			- <a href="javascript:void(0)" class="basic-link" onclick="goToPage('order-mb')">Purchase a Service</a>
+		</p>
+		<center><a href="javascript:void(0)" class="basic-link" onclick="goToPage('home')"><- Back to Dashboard</a></center>
+	</div>
+
+	<div id="smb" class="page">
+		<h1>Sweet Mystery Box</h1>
+		<h5>CNC's Sweet Mystery Box is a mystery box that will be delivered to your house, filled with random, high-quality sweets.</h5>
+		<p>
+			Price: 20 GBP<br>
+			Shipped From: Northern Ireland<br>
+			Estimate Count of Sweets: 30<br>
+			Quality Ensurance: Very High
+		</p>
+		<a href="javascript:void(0)" class="x-button" onclick="goToPage('order-mb')">Buy</a>
+		<center><a href="javascript:void(0)" class="basic-link" onclick="goToPage('prods')"><- Back to Products</a></center>
+	</div>
+
+	<div id="pmu" class="page">
+		<h1>Thank you for your purchase.</h1>
+		<h3>Your product will be here with you shortly.</h3>
+		<h3>Delivery times up to i̷̢̝̱̭͔͒͂̈͜͝n̷͓̲̆̀̀̒͐͠f̶͔̪͎̲̥̹̱̒͜ days.</h3>
+		<center><a href="javascript:void(0)" class="basic-link" onclick="goToPage('prods')"><- Back to Products</a></center>
+	</div>
+
+    <div class="footer">
+        CNC Inc, 2026. |
+        <a href="javascript:void(0)" class="basic-link" onclick="goToPage('au')">About Us</a> • 
+        <a href="javascript:void(0)" class="basic-link">Contacts</a> • 
+        <a href="javascript:void(0)" class="basic-link" onclick="goToPage('opps')">Opportunities</a> | 
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html#license-text" class="basic-link">GPLv3</a>
+    </div>
+
+    <script>
+        function goToPage(pageId) {
+            document.body.style.opacity = '0';
+
+            setTimeout(() => {
+                const pages = document.querySelectorAll('.page');
+                pages.forEach(p => p.classList.remove('active'));
+                document.getElementById(pageId).classList.add('active');
+                document.body.style.opacity = '1';
+                window.scrollTo(0,0);
+            }, 200);
+        }
+
+		document.getElementById('cardnumber').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+    let formattedValue = value.match(/.{1,4}/g)?.join(' ') || '';
+    e.target.value = formattedValue.substring(0, 19);
+});
+
+document.getElementById('expiry').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 2) {
+        e.target.value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    } else {
+        e.target.value = value;
+    }
+});
+    </script>
+
+</body>
+</html>
